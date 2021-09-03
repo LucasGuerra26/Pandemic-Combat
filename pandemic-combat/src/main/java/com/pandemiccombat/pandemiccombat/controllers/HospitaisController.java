@@ -28,6 +28,9 @@ public class HospitaisController {
 	public ResponseEntity<?> adicionarHospital(@RequestBody HospitalDTO hospitalDTO, UriComponentsBuilder ucBuilder) {
 
 		Optional<Hospitais> hospitalop = hospitalService.getHospitalByCNPJ(hospitalDTO.getCnpj());
+		if (!hospitalop.isEmpty()) {
+			return new ResponseEntity<>("O hospital com esse CNPJ já está cadastrado",HttpStatus.CONFLICT);
+		}
 
 		Hospitais hospital = hospitalService.criaHospital(hospitalDTO);
 		hospitalService.salvarHospitalCadastrado(hospital);
