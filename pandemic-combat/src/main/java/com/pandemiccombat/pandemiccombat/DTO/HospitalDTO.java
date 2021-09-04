@@ -10,6 +10,7 @@ public class HospitalDTO {
 	 */
 	private long cnpj;
 	
+	
 	/*
 	 * nome do hospital
 	 */
@@ -124,5 +125,6 @@ public class HospitalDTO {
 	public Integer getQuantidadeDeTomografos() {
 		return quantidadeDeTomografos;
 	}
+
 
 }

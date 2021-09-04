@@ -4,6 +4,7 @@ package com.pandemiccombat.pandemiccombat.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -62,7 +63,7 @@ public class Hospitais {
 	/*
 	 * recursos do hospital
 	 */
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Recursos recursos;
 	
 	private Hospitais() {}
@@ -72,7 +73,7 @@ public class Hospitais {
 	 * e localização do hospital. O construtor ja adiciona a data e altera a variavel de sinalização dependendo do percentual
 	 * de ocupação do hospital, true para ocupação maior ou igual a 90, e false caso contrário
 	 */
-	public Hospitais(Long CNPJ, String nome, String endereco, Integer ocupacao, String localizacao) {
+	public Hospitais(Recursos r, Long CNPJ, String nome, String endereco, Integer ocupacao, String localizacao) {
 		this.CNPJ = CNPJ;
 		this.nome = nome;
 		this.endereco = endereco;
@@ -81,7 +82,7 @@ public class Hospitais {
 		dataDeControleDeOcupacao = new Date();
 		if (ocupacao >= 90) {estaComAltaOcupacao = true;}
 		else {estaComAltaOcupacao = false;}
-		this.recursos = new Recursos();
+		this.recursos = r;
 	}
 	
 	/*

@@ -37,8 +37,8 @@ public class HospitalServiceImpl implements HospitalService{
 	 * cria um novo hospital no sistema
 	 */
 	@Override
-	public Hospitais criaHospital(HospitalDTO hospitalDto) {
-		Hospitais hospital = new Hospitais (hospitalDto.getCnpj(), hospitalDto.getNome(), 
+	public Hospitais criaHospital(Recursos r, HospitalDTO hospitalDto) {
+		Hospitais hospital = new Hospitais (r, hospitalDto.getCnpj(), hospitalDto.getNome(), 
 				hospitalDto.getEndereco(), hospitalDto.getOcupacao(), hospitalDto.getLocalizacao());
 		return hospital;
 	}

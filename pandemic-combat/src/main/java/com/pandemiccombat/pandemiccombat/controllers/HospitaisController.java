@@ -54,10 +54,10 @@ public class HospitaisController {
 			return new ResponseEntity<>("O hospital com esse CNPJ já está cadastrado",HttpStatus.CONFLICT);
 		}
 
-		Hospitais hospital = hospitalService.criaHospital(hospitalDTO);
 		Recursos recursos = recursosService.criaRecursos(hospitalDTO);
+		Hospitais hospital = hospitalService.criaHospital(recursos, hospitalDTO);
+		
 		recursosService.salvarRecursos(recursos);
-		hospitalService.atualizaRecursos(recursos, hospital);
 		hospitalService.salvarHospitalCadastrado(hospital);
 
 		return new ResponseEntity<Hospitais>(hospital, HttpStatus.CREATED);
