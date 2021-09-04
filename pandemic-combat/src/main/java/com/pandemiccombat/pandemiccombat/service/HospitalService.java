@@ -20,7 +20,7 @@ public interface HospitalService {
 	/*
 	 * cria um novo hospital no sistema
 	 */
-	public Hospitais criaHospital (HospitalDTO hospitalDto);
+	public Hospitais criaHospital (Recursos r, HospitalDTO hospitalDto);
 	
 	/*
 	 * salva o hospital criado no banco de dados usando jpa repository
