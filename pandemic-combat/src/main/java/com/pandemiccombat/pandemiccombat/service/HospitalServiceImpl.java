@@ -76,14 +76,6 @@ public class HospitalServiceImpl implements HospitalService{
 	}
 	
 	/*
-	 * atualiza os recursos de um hospital, recebe como parametro o hospital e seus novos recursos
-	 */
-	@Override
-	public void atualizaRecursos(Recursos recursos, Hospitais hospital) {
-		hospital.setRecursos(recursos);
-	}
-	
-	/*
 	 * retorna um relatório com a porcentagem de hospitais que estão com sua
 	 * ocupação maior ou igual a 90%
 	 */

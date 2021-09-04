@@ -33,11 +33,6 @@ public interface HospitalService {
 	public Hospitais alteraOcupacao (Hospitais hospital, Integer ocupacao);
 	
 	/*
-	 * atualiza os recursos de um hospital, recebe como parametro o hospital e seus novos recursos
-	 */
-	public void atualizaRecursos(Recursos recursos, Hospitais hospital);
-	
-	/*
 	 * retorna um relatório com a porcentagem de hospitais que estão com sua
 	 * ocupação maior ou igual a 90%
 	 */

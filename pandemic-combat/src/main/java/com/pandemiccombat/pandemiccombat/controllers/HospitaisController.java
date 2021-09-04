@@ -53,6 +53,10 @@ public class HospitaisController {
 		if (!hospitalOp.isEmpty()) {
 			return new ResponseEntity<>("O hospital com esse CNPJ já está cadastrado",HttpStatus.CONFLICT);
 		}
+		
+		if (hospitalDTO.getOcupacao()>100 || hospitalDTO.getOcupacao()<0) {
+			return new ResponseEntity<>("A ocupação de um hospital não pode ser superior a 100 nem inferior a 0",HttpStatus.BAD_REQUEST);
+		}
 
 		Recursos recursos = recursosService.criaRecursos(hospitalDTO);
 		Hospitais hospital = hospitalService.criaHospital(recursos, hospitalDTO);
