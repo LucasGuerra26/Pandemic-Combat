@@ -138,6 +138,11 @@ public class Hospitais {
 	 * edita a porcentagem de ocupacao do hospital, recebe a nova ocupacao como parametro
 	 */
 	public void setOcupacao(Integer ocupacao) {
+		if (ocupacao>=90) {
+			this.estaComAltaOcupacao = true;
+		} else {
+			this.estaComAltaOcupacao=false;
+		}
 		this.ocupacao = ocupacao;
 	}
 	
