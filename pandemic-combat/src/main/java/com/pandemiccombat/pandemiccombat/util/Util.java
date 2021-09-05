@@ -1,5 +1,6 @@
 package com.pandemiccombat.pandemiccombat.util;
 
+import com.pandemiccombat.pandemiccombat.DTO.HospitalDTO;
 import com.pandemiccombat.pandemiccombat.DTO.IntercambioRecursosDTO;
 import com.pandemiccombat.pandemiccombat.model.Hospitais;
 import com.pandemiccombat.pandemiccombat.model.IntercambioDeRecursos;
@@ -21,6 +22,23 @@ public class Util {
 		} else if (pontosHospital2<pontosHospital1 && h2.getOcupacao()>=90 && h1.getOcupacao()<90) {
 			return true;
 		}else {
+			return false;
+		}
+	}
+	
+	public static boolean podeAdicionarHospital(HospitalDTO hospitalDTO) {
+		
+		if ((hospitalDTO.getEndereco().equals("") || hospitalDTO.getLocalizacao().equals("") || hospitalDTO.getNome().equals(""))) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
+	public static boolean validaCNPJ(HospitalDTO hospitalDTO) {
+		if ((""+hospitalDTO.getCnpj()).length()==14) {
+			return true;
+		} else {
 			return false;
 		}
 	}

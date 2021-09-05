@@ -20,6 +20,7 @@ import com.pandemiccombat.pandemiccombat.model.Hospitais;
 import com.pandemiccombat.pandemiccombat.model.Recursos;
 import com.pandemiccombat.pandemiccombat.service.HospitalService;
 import com.pandemiccombat.pandemiccombat.service.RecursosService;
+import com.pandemiccombat.pandemiccombat.util.Util;
 
 @RestController
 @RequestMapping("/api")
@@ -57,6 +58,8 @@ public class HospitaisController {
 		if (hospitalDTO.getOcupacao()>100 || hospitalDTO.getOcupacao()<0) {
 			return new ResponseEntity<>("A ocupação de um hospital não pode ser superior a 100 nem inferior a 0",HttpStatus.BAD_REQUEST);
 		}
+		if (!Util.podeAdicionarHospital(hospitalDTO)) {return new ResponseEntity<String>("Os campos nome, endereço e localização são obrigatórios.", HttpStatus.BAD_REQUEST);}
+		if (!Util.validaCNPJ(hospitalDTO)) {return new ResponseEntity<String>("CNPJ inválido.", HttpStatus.BAD_REQUEST);}
 
 		Recursos recursos = recursosService.criaRecursos(hospitalDTO);
 		Hospitais hospital = hospitalService.criaHospital(recursos, hospitalDTO);

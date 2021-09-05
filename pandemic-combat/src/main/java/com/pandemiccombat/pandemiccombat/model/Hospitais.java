@@ -32,11 +32,13 @@ public class Hospitais {
 	/*
 	 * variavel referente ao nome do hospital
 	 */
+	@NotNull
 	private String nome;
 	
 	/*
 	 * variavel referente ao endereço do hospital
 	 */
+	@NotNull
 	private String endereco;
 	
 	/*
@@ -47,6 +49,7 @@ public class Hospitais {
 	/*
 	 * variavel referente a localizacao do hospital
 	 */
+	@NotNull
 	private String localizacao;
 	
 	/*
